@@ -11,6 +11,7 @@ class WeatherForm extends React.Component{
 
     getTemp(this.refs.cityName.value)
     .then(response => {
+      console.log('Vao then');
       //Set result
       parent.state.isLoading = false;
       parent.state.city = this.refs.cityName.value;
@@ -18,7 +19,13 @@ class WeatherForm extends React.Component{
       this.refs.cityName.value = '';
       parent.setState(parent.state);
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      parent.state.isLoading = false;
+      parent.state.city = undefined
+      parent.state.temp = undefined;
+      this.refs.cityName.value = '';
+      parent.setState(parent.state);
+    });
   }
   render(){
     return (

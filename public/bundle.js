@@ -21595,6 +21595,7 @@
 	      parent.setState(parent.state);
 
 	      (0, _getTemp2.default)(this.refs.cityName.value).then(function (response) {
+	        console.log('Vao then');
 	        //Set result
 	        parent.state.isLoading = false;
 	        parent.state.city = _this2.refs.cityName.value;
@@ -21602,7 +21603,11 @@
 	        _this2.refs.cityName.value = '';
 	        parent.setState(parent.state);
 	      }).catch(function (err) {
-	        return console.log(err);
+	        parent.state.isLoading = false;
+	        parent.state.city = undefined;
+	        parent.state.temp = undefined;
+	        _this2.refs.cityName.value = '';
+	        parent.setState(parent.state);
 	      });
 	    }
 	  }, {
