@@ -12,8 +12,8 @@ class Weather extends React.Component{
     var xhtml = city?<WeatherMessage city={city} temp={temp}/>:null
     var xhtml2 = isLoading?<h3>Loading...</h3>:xhtml;
     return (
-      <div>
-        <h1>Get Weather</h1>
+      <div className="small-10 medium-6 large-4 columns small-centered">
+        <h1 className="page-title text-center">Get Weather</h1>
         <WeatherForm parent={this}/>
         {xhtml2}
       </div>

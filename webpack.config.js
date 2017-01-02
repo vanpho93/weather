@@ -24,7 +24,8 @@ module.exports = {
       WeatherMessage: 'app/Components/WeatherMessage.js',
       getTemp: 'app/api/getTemp.js',
       Main: 'app/Components/Main.js',
-      Nav: 'app/Components/Nav.js'
+      Nav: 'app/Components/Nav.js',
+      styleSheet: 'app/css/style.css' 
     }
   },
   module: {

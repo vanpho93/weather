@@ -6,8 +6,9 @@ class Nav extends React.Component {
           <div className="top-bar">
                 <div className="top-bar-left">
                     <ul className="menu">
-                      <li><Link to = "/about" activeClassName = "active" >About</Link></li>
+                      <li class="menu-text"><strong>Site Title</strong></li>
                       <li><IndexLink to="/" activeClassName=" active ">Get Weather</IndexLink></li>
+                      <li><Link to = "/about" activeClassName = "active" >About</Link></li>
                     </ul>
                 </div>
                 <div className="top-bar-right">

@@ -120,6 +120,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	__webpack_require__(272);
+	__webpack_require__(276);
 	$(document).foundation();
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -21609,10 +21610,10 @@
 	      ) : xhtml;
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'small-10 medium-6 large-4 columns small-centered' },
 	        _react2.default.createElement(
 	          'h1',
-	          null,
+	          { className: 'page-title text-center' },
 	          'Get Weather'
 	        ),
 	        _react2.default.createElement(_WeatherForm2.default, { parent: this }),
@@ -23280,7 +23281,7 @@
 /* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -23297,26 +23298,48 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var About = function (_React$Component) {
-	  _inherits(About, _React$Component);
+	    _inherits(About, _React$Component);
 
-	  function About() {
-	    _classCallCheck(this, About);
+	    function About() {
+	        _classCallCheck(this, About);
 
-	    return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
-	  }
-
-	  _createClass(About, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        'Hello KhoaPham'
-	      );
+	        return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
 	    }
-	  }]);
 
-	  return About;
+	    _createClass(About, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "p",
+	                    null,
+	                    "Trang web \u0111\u01B0\u1EE3c vi\u1EBFt b\u1EB1ng",
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "https://facebook.github.io/react/" },
+	                        "ReactJS"
+	                    ),
+	                    _react2.default.createElement("br", null),
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "https://www.facebook.com/vanphoUEL" },
+	                        "L\u1EADp tr\xECnh vi\xEAn: Nguy\u1EC5n V\u0103n Ph\u1ED1"
+	                    ),
+	                    _react2.default.createElement("br", null),
+	                    "Server \u0111\u01B0\u1EE3c x\xE2y d\u1EF1ng b\u1EB1ng NodeJS API l\u1EA5y t\u1EEB web",
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "http://openweathermap.org" },
+	                        "openweathermap.org"
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return About;
 	}(_react2.default.Component);
 
 	module.exports = About;
@@ -23361,8 +23384,11 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_Nav2.default, null),
-	        'Main Component',
-	        this.props.children
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          this.props.children
+	        )
 	      );
 	    }
 	  }]);
@@ -23417,11 +23443,11 @@
 	                        { className: 'menu' },
 	                        _react2.default.createElement(
 	                            'li',
-	                            null,
+	                            { 'class': 'menu-text' },
 	                            _react2.default.createElement(
-	                                _reactRouter.Link,
-	                                { to: '/about', activeClassName: 'active' },
-	                                'About'
+	                                'strong',
+	                                null,
+	                                'Site Title'
 	                            )
 	                        ),
 	                        _react2.default.createElement(
@@ -23431,6 +23457,15 @@
 	                                _reactRouter.IndexLink,
 	                                { to: '/', activeClassName: ' active ' },
 	                                'Get Weather'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { to: '/about', activeClassName: 'active' },
+	                                'About'
 	                            )
 	                        )
 	                    )
@@ -28717,6 +28752,46 @@
 		if(oldSrc)
 			URL.revokeObjectURL(oldSrc);
 	}
+
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(277);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(275)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./style.css", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./style.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(274)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".page-title{\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem;\n}\n\n.active{\n  font-weight: bold;\n}\n", ""]);
+
+	// exports
 
 
 /***/ }

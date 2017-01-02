@@ -6,6 +6,7 @@ import Main from 'Main';
 import {hashHistory, Router, Route, IndexRoute} from 'react-router';
 
 require('style!css!foundation-sites/dist/foundation.min.css');
+require('style!css!styleSheet');
 $(document).foundation();
 
 ReactDOM.render(
