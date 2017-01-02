@@ -21511,7 +21511,7 @@
 
 	    var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this, props));
 
-	    _this.state = { city: 'Hanoi', temp: 15 };
+	    _this.state = { city: undefined, temp: undefined, isLoading: false };
 	    return _this;
 	  }
 
@@ -21520,8 +21520,15 @@
 	    value: function render() {
 	      var _state = this.state,
 	          city = _state.city,
-	          temp = _state.temp;
+	          temp = _state.temp,
+	          isLoading = _state.isLoading;
 
+	      var xhtml = city ? _react2.default.createElement(_WeatherMessage2.default, { city: city, temp: temp }) : null;
+	      var xhtml2 = isLoading ? _react2.default.createElement(
+	        'h3',
+	        null,
+	        'Loading...'
+	      ) : xhtml;
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -21531,7 +21538,7 @@
 	          'Get Weather'
 	        ),
 	        _react2.default.createElement(_WeatherForm2.default, { parent: this }),
-	        _react2.default.createElement(_WeatherMessage2.default, { city: city, temp: temp })
+	        xhtml2
 	      );
 	    }
 	  }]);
@@ -21580,9 +21587,16 @@
 	      var _this2 = this;
 
 	      e.preventDefault();
-	      (0, _getTemp2.default)(this.refs.cityName.value).then(function (response) {
-	        var parent = _this2.props.parent;
 
+	      //Set loading text
+	      var parent = this.props.parent;
+
+	      parent.state.isLoading = true;
+	      parent.setState(parent.state);
+
+	      (0, _getTemp2.default)(this.refs.cityName.value).then(function (response) {
+	        //Set result
+	        parent.state.isLoading = false;
 	        parent.state.city = _this2.refs.cityName.value;
 	        parent.state.temp = response.data.main.temp;
 	        _this2.refs.cityName.value = '';

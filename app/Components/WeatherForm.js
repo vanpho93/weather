@@ -3,16 +3,22 @@ import getTemp from 'getTemp';
 class WeatherForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
+
+    //Set loading text
+    var {parent} = this.props;
+    parent.state.isLoading = true;
+    parent.setState(parent.state);
+
     getTemp(this.refs.cityName.value)
     .then(response => {
-      var {parent} = this.props;
+      //Set result
+      parent.state.isLoading = false;
       parent.state.city = this.refs.cityName.value;
       parent.state.temp = response.data.main.temp;
       this.refs.cityName.value = '';
       parent.setState(parent.state);
     })
     .catch(err => console.log(err));
-
   }
   render(){
     return (
