@@ -5,6 +5,9 @@ import About from 'About';
 import Main from 'Main';
 import {hashHistory, Router, Route, IndexRoute} from 'react-router';
 
+require('style!css!foundation-sites/dist/foundation.min.css');
+$(document).foundation();
+
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/a" component={Main}>
