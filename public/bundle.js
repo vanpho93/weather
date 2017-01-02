@@ -21506,15 +21506,22 @@
 	var Weather = function (_React$Component) {
 	  _inherits(Weather, _React$Component);
 
-	  function Weather() {
+	  function Weather(props) {
 	    _classCallCheck(this, Weather);
 
-	    return _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Weather.__proto__ || Object.getPrototypeOf(Weather)).call(this, props));
+
+	    _this.state = { city: 'Hanoi', temp: 15 };
+	    return _this;
 	  }
 
 	  _createClass(Weather, [{
 	    key: 'render',
 	    value: function render() {
+	      var _state = this.state,
+	          city = _state.city,
+	          temp = _state.temp;
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -21523,8 +21530,8 @@
 	          null,
 	          'Get Weather'
 	        ),
-	        _react2.default.createElement(_WeatherForm2.default, null),
-	        _react2.default.createElement(_WeatherMessage2.default, null)
+	        _react2.default.createElement(_WeatherForm2.default, { parent: this }),
+	        _react2.default.createElement(_WeatherMessage2.default, { city: city, temp: temp })
 	      );
 	    }
 	  }]);
@@ -21538,7 +21545,7 @@
 /* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21564,27 +21571,31 @@
 	  }
 
 	  _createClass(WeatherForm, [{
-	    key: "handleSubmit",
+	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
-	      alert(this.refs.cityName.value);
+	      var parent = this.props.parent;
+
+	      parent.state.city = this.refs.cityName.value;
+	      this.refs.cityName.value = '';
+	      parent.setState(parent.state);
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
+	        'div',
 	        null,
 	        _react2.default.createElement(
-	          "form",
+	          'form',
 	          { onSubmit: this.handleSubmit.bind(this) },
-	          _react2.default.createElement("input", { type: "text", placeholder: "Enter your city name", ref: "cityName" }),
-	          _react2.default.createElement("br", null),
-	          _react2.default.createElement("br", null),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'Enter your city name', ref: 'cityName' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
-	            "button",
-	            { type: "submit" },
-	            "Get Weather"
+	            'button',
+	            { type: 'submit' },
+	            'Get Weather'
 	          )
 	        )
 	      );
@@ -21628,10 +21639,18 @@
 	  _createClass(WeatherMessage, [{
 	    key: 'render',
 	    value: function render() {
+	      var _props = this.props,
+	          city = _props.city,
+	          temp = _props.temp;
+
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Hello KhoaPham'
+	        _react2.default.createElement(
+	          'h3',
+	          null,
+	          city + ' hi\u1EC7n t\u1EA1i ' + temp + ' \u0111\u1ED9 C'
+	        )
 	      );
 	    }
 	  }]);

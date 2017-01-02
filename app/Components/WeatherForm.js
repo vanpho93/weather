@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 class WeatherForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
-    alert(this.refs.cityName.value);
+    var {parent} = this.props;
+    parent.state.city = this.refs.cityName.value;
+    this.refs.cityName.value = '';
+    parent.setState(parent.state);
   }
   render(){
     return (
