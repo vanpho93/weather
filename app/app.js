@@ -10,7 +10,7 @@ $(document).foundation();
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route path="/a" component={Main}>
+    <Route path="/" component={Main}>
       <IndexRoute component={Weather}/>
       <Route path="about" component={About}/>
     </Route>

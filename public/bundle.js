@@ -127,7 +127,7 @@
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(
 	    _reactRouter.Route,
-	    { path: '/a', component: _Main2.default },
+	    { path: '/', component: _Main2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Weather2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default })
 	  )
@@ -21703,7 +21703,7 @@
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'button',
-	            { type: 'submit' },
+	            { className: 'button large expanded', type: 'submit' },
 	            'Get Weather'
 	          )
 	        )
@@ -23395,35 +23395,73 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Nav = function (_React$Component) {
-	  _inherits(Nav, _React$Component);
+	    _inherits(Nav, _React$Component);
 
-	  function Nav() {
-	    _classCallCheck(this, Nav);
+	    function Nav() {
+	        _classCallCheck(this, Nav);
 
-	    return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
-	  }
-
-	  _createClass(Nav, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: '/about', activeClassName: 'active' },
-	          'About'
-	        ),
-	        _react2.default.createElement(
-	          _reactRouter.IndexLink,
-	          { to: '/a', activeClassName: 'active' },
-	          'Get Weather'
-	        )
-	      );
+	        return _possibleConstructorReturn(this, (Nav.__proto__ || Object.getPrototypeOf(Nav)).apply(this, arguments));
 	    }
-	  }]);
 
-	  return Nav;
+	    _createClass(Nav, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'top-bar' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'top-bar-left' },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        { className: 'menu' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactRouter.Link,
+	                                { to: '/about', activeClassName: 'active' },
+	                                'About'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                _reactRouter.IndexLink,
+	                                { to: '/', activeClassName: ' active ' },
+	                                'Get Weather'
+	                            )
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'top-bar-right' },
+	                    _react2.default.createElement(
+	                        'ul',
+	                        { className: 'menu' },
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement('input', { type: 'search', placeholder: 'Search' })
+	                        ),
+	                        _react2.default.createElement(
+	                            'li',
+	                            null,
+	                            _react2.default.createElement(
+	                                'button',
+	                                { type: 'button', className: 'button' },
+	                                'Search'
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Nav;
 	}(_react2.default.Component);
 
 	module.exports = Nav;
