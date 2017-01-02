@@ -10,7 +10,8 @@ module.exports = {
       About: 'app/Components/About.js',
       Weather: 'app/Components/Weather.js',
       WeatherForm: 'app/Components/WeatherForm.js',
-      WeatherMessage: 'app/Components/WeatherMessage.js'
+      WeatherMessage: 'app/Components/WeatherMessage.js',
+      getTemp: 'app/api/getTemp.js'
     }
   },
   module: {

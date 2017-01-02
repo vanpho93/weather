@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
-
+import getTemp from 'getTemp';
 class WeatherForm extends React.Component{
   handleSubmit(e){
     e.preventDefault();
     var {parent} = this.props;
     parent.state.city = this.refs.cityName.value;
+
+    getTemp(this.refs.cityName.value)
+    .then(response => console.log(response.data.main.temp))
+    .catch(err => console.log(err));
+
     this.refs.cityName.value = '';
     parent.setState(parent.state);
   }
