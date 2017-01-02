@@ -21577,19 +21577,19 @@
 	  _createClass(WeatherForm, [{
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
+	      var _this2 = this;
+
 	      e.preventDefault();
-	      var parent = this.props.parent;
-
-	      parent.state.city = this.refs.cityName.value;
-
 	      (0, _getTemp2.default)(this.refs.cityName.value).then(function (response) {
-	        return console.log(response.data.main.temp);
+	        var parent = _this2.props.parent;
+
+	        parent.state.city = _this2.refs.cityName.value;
+	        parent.state.temp = response.data.main.temp;
+	        _this2.refs.cityName.value = '';
+	        parent.setState(parent.state);
 	      }).catch(function (err) {
 	        return console.log(err);
 	      });
-
-	      this.refs.cityName.value = '';
-	      parent.setState(parent.state);
 	    }
 	  }, {
 	    key: 'render',
