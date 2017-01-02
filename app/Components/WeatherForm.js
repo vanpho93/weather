@@ -18,14 +18,15 @@ class WeatherForm extends React.Component{
       parent.state.temp = response.data.main.temp;
       this.refs.cityName.value = '';
       parent.setState(parent.state);
+    },
+      res => {
+        alert(res.response.data.message);
+        parent.state.isLoading = false;
+        parent.state.city = undefined
+        parent.state.temp = undefined;
+        this.refs.cityName.value = '';
+        parent.setState(parent.state);
     })
-    .catch(err => {
-      parent.state.isLoading = false;
-      parent.state.city = undefined
-      parent.state.temp = undefined;
-      this.refs.cityName.value = '';
-      parent.setState(parent.state);
-    });
   }
   render(){
     return (

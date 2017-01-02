@@ -21602,7 +21602,8 @@
 	        parent.state.temp = response.data.main.temp;
 	        _this2.refs.cityName.value = '';
 	        parent.setState(parent.state);
-	      }).catch(function (err) {
+	      }, function (res) {
+	        alert(res.response.data.message);
 	        parent.state.isLoading = false;
 	        parent.state.city = undefined;
 	        parent.state.temp = undefined;
