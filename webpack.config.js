@@ -11,7 +11,9 @@ module.exports = {
       Weather: 'app/Components/Weather.js',
       WeatherForm: 'app/Components/WeatherForm.js',
       WeatherMessage: 'app/Components/WeatherMessage.js',
-      getTemp: 'app/api/getTemp.js'
+      getTemp: 'app/api/getTemp.js',
+      Main: 'app/Components/Main.js',
+      Nav: 'app/Components/Nav.js'
     }
   },
   module: {
