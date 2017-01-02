@@ -1,7 +1,8 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var About = require('./Components/About.js');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Weather from 'Weather';
+
 ReactDOM.render(
-  <About/>,
+  <Weather/>,
   document.getElementById('root')
 );
